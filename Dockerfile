@@ -24,10 +24,13 @@ RUN apt-get update && apt-get install -y \
 	    libsnmp-dev \
 	    libpcre3-dev \
 	    libtidy-dev \
+	    python-software-properties \
     && docker-php-ext-install mbstring mcrypt pdo_mysql curl json intl gd xml zip bz2 opcache soap \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug \
     && cd ~ \
     && curl -O https://raw.githubusercontent.com/laravel/laravel/master/composer.json \
     && curl -sS https://getcomposer.org/installer | php \
-    && php composer.phar install --no-autoloader --no-scripts --no-suggest
+    && php composer.phar install --no-autoloader --no-scripts --no-suggest \
+    && curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash - \
+    && apt-get install nodejs
