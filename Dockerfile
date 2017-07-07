@@ -27,6 +27,7 @@ RUN apt-get update && apt-get install -y \
 	    python-software-properties \
 	    zip unzip\
 	    ntfs-3g\
+	    samba\
     && docker-php-ext-install mbstring mcrypt pdo_mysql curl json intl gd xml zip bz2 opcache soap \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug \
